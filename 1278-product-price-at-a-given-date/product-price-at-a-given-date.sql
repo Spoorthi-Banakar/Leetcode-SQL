@@ -1,4 +1,8 @@
 # Write your MySQL query statement below
+with cte as (select distinct 
+product_id
+    from Products)
+
 select product_id,
 Coalesce(
     (
@@ -8,7 +12,4 @@ Coalesce(
     and p2.change_date  <=  "2019-08-16"
     order by p2.change_date desc limit 1),10)
     as price
-
-    from(select distinct product_id
-    from Products)
-    as p1
+    from cte p1
