@@ -1,5 +1,5 @@
 select m.employee_id,m.name,
-count(e.reports_to) as  reports_count,
+count(e.employee_id) as  reports_count,
 round(avg(e.age),0) as average_age
 from Employees e
 join Employees m
